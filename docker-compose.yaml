@@ -3,7 +3,7 @@ version: '3'
 services: 
 
   server: 
-    build: /home/luismomm/Documents/Graduação/22-1/PAC/abracos-abertos/api/
+    build: ./api/
     expose: 
       - ${APP_SERVER_PORT}
     environment:
