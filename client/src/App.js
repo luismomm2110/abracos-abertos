@@ -6,7 +6,7 @@ import { Footer } from "./pages/Footer";
 
 function App() {
   return (
-    <div fluid id="container">
+    <div style={{ height: "100%" }}>
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
