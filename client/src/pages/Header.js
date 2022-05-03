@@ -1,16 +1,11 @@
-import { Navbar, Nav } from "react-bootstrap";
+import { Navbar, Nav, Container } from "react-bootstrap";
 import logo from "../assets/logo.png";
 
 const Header = () => {
   return (
-    <div
-      style={{
-        "text-align": "center",
-        padding: 5,
-      }}
-    >
-      <Navbar className="mr-auto">
-        <Nav class="justify-content-between">
+    <Navbar expand="sm">
+      <Container className="my-auto justify-content-center">
+        <Nav className="me-auto">
           <Navbar.Brand className="link-header" href="/">
             <img src={logo} height="50" width="150" alt="logo" />
           </Navbar.Brand>
@@ -24,8 +19,8 @@ const Header = () => {
             Contato
           </Nav.Link>
         </Nav>
-      </Navbar>
-    </div>
+      </Container>
+    </Navbar>
   );
 };
 
