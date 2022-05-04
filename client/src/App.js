@@ -6,7 +6,7 @@ import { Footer } from "./pages/Footer";
 
 function App() {
   return (
-    <div style={{ height: "100%" }}>
+    <div>
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
