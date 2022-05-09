@@ -4,6 +4,9 @@ var path = require("path");
 var cookieParser = require("cookie-parser");
 var logger = require("morgan");
 var cors = require("cors");
+var mongoose = require("mongoose");
+var urlMongo = require("./configMongo");
+const { MongoClient } = require("mongodb");
 
 var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/users");
@@ -26,7 +29,6 @@ app.use("/", indexRouter);
 app.use("/users", usersRouter);
 app.use("/testAPI", testAPIRouter);
 
-// catch 404 and forward to error handler
 app.use(function (req, res, next) {
   next(createError(404));
 });
@@ -40,6 +42,17 @@ app.use(function (err, req, res, next) {
   // render the error page
   res.status(err.status || 500);
   res.render("error");
+});
+
+mongoose.Promise = global.Promise;
+
+const connectionParams = {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+};
+
+mongoose.connect(urlMongo.url, connectionParams).catch((err) => {
+  console.error(`Error connecting to the database. \n${err}`);
 });
 
 module.exports = app;
