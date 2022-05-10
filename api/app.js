@@ -8,8 +8,6 @@ var mongoose = require("mongoose");
 var urlMongo = require("./configMongo");
 const { MongoClient } = require("mongodb");
 
-var indexRouter = require("./routes/index");
-var usersRouter = require("./routes/users");
 var testAPIRouter = require("./routes/testAPI");
 
 var app = express();
@@ -25,8 +23,6 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
-app.use("/", indexRouter);
-app.use("/users", usersRouter);
 app.use("/testAPI", testAPIRouter);
 
 app.use(function (req, res, next) {
