@@ -1,9 +1,9 @@
-import mongoose from "mongoose";
+var mongoose = require("mongoose");
 
-const VolunteerSchema = new mongoose.schema({
+const VolunteerSchema = new mongoose.Schema({
   name: {
     type: String,
-    required: "Name obrigatório",
+    required: "Nome obrigatório",
   },
   email: {
     type: String,
@@ -16,18 +16,20 @@ const VolunteerSchema = new mongoose.schema({
   gender: {
     type: "String",
   },
-  CPF: {
+  cpf: {
     type: "String",
     required: "Cpf obrigatório",
   },
-  endereço: {
+  address: {
     type: "String",
     required: "Endereço obrigatória",
   },
-  escolaridade: {
+  educationalLevel: {
     type: "String",
     required: "Escolaridade obrigatória",
   },
 });
 
-module.export = mongoose.model("Volunteer", VolunteerSchema);
+const Volunteer = mongoose.model("Volunteer", VolunteerSchema);
+
+module.exports = Volunteer;

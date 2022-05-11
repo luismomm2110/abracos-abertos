@@ -6,9 +6,8 @@ var logger = require("morgan");
 var cors = require("cors");
 var mongoose = require("mongoose");
 var urlMongo = require("./configMongo");
-const { MongoClient } = require("mongodb");
-
-var testAPIRouter = require("./routes/testAPI");
+var indexRouter = require("./routes/index");
+var volunteerRouter = require("./routes/volunteer.route.js");
 
 var app = express();
 
@@ -23,7 +22,8 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
-app.use("/testAPI", testAPIRouter);
+app.use("/", indexRouter);
+app.use("/", volunteerRouter);
 
 app.use(function (req, res, next) {
   next(createError(404));
@@ -31,8 +31,7 @@ app.use(function (req, res, next) {
 
 // error handler
 app.use(function (err, req, res, next) {
-  // set locals, only providing error in development
-  res.locals.message = err.message;
+  // set locals, only providing error in development res.locals.message = err.message;
   res.locals.error = req.app.get("env") === "development" ? err : {};
 
   // render the error page
