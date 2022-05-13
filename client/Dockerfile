@@ -10,4 +10,4 @@ RUN yarn install
 
 COPY . /srv/app/client
 
-CMD ["yarn", "start", "run"]
+CMD ["yarn", "run", "start"]
