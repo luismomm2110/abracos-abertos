@@ -16,4 +16,15 @@ const create = async (req, res) => {
   }
 };
 
-module.exports = { create };
+const list = async (req, res) => {
+  try {
+    let volunteers = await Volunteer.find().select("name email age created");
+    res.json(volunteers);
+  } catch (err) {
+    return res.status(400).json({
+      error: errorHandler.getErrorMessage(err),
+    });
+  }
+};
+
+module.exports = { create, list };
