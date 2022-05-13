@@ -5,10 +5,10 @@ RUN mkdir -p /srv/app/api
 WORKDIR /srv/app/api
 
 COPY ./package.json /srv/app/api
-COPY ./package-lock.json /srv/app/api
+COPY ./yarn.lock /srv/app/api
 
-RUN npm install
+RUN yarn install
 
 COPY . /srv/app/api
 
-CMD ["npm", "start"]
+CMD ["yarn", "start"]

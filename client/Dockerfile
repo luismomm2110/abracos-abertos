@@ -4,10 +4,10 @@ RUN mkdir -p /srv/app/client
 WORKDIR /srv/app/client
 
 COPY ./package.json /srv/app/client
-COPY ./package-lock.json /srv/app/client
+COPY ./yarn.lock /srv/app/client
 
-RUN npm install
+RUN yarn install
 
 COPY . /srv/app/client
 
-CMD ["npm", "start"]
+CMD ["yarn", "start", "run"]
