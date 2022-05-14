@@ -27,10 +27,10 @@ const list = async (req, res) => {
   }
 };
 
+
 const volunteerByID = async (req, res, next, id) => {
   try {
     let volunteer = await Volunteer.findById(id);
-    console.log();
     if (!volunteer)
       return res.status("400").json({
         error: "Volunteer not found",
@@ -45,7 +45,6 @@ const volunteerByID = async (req, res, next, id) => {
 };
 
 const remove = async (req, res) => {
-  console.log(req.profile);
   try {
     let volunteer = req.profile;
     let deletedVolunteer = await volunteer.remove();
