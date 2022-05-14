@@ -8,6 +8,7 @@ var mongoose = require("mongoose");
 var urlMongo = require("./configMongo");
 var indexRouter = require("./routes/index");
 var volunteerRouter = require("./routes/volunteer.route.js");
+var studentRouter = require("./routes/student.route.js");
 
 var app = express();
 
@@ -24,6 +25,7 @@ app.use(express.static(path.join(__dirname, "public")));
 
 app.use("/", indexRouter);
 app.use("/", volunteerRouter);
+app.use("/", studentRouter);
 
 app.use(function (req, res, next) {
   next(createError(404));

@@ -6,7 +6,7 @@ const create = async (req, res) => {
   try {
     await student.save();
     return res.status(200).json({
-      message: "Voluntário registrado!",
+      message: "Estudante registrado!",
     });
   } catch (err) {
     return res.status(400).json({
