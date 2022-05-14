@@ -27,4 +27,33 @@ const list = async (req, res) => {
   }
 };
 
-module.exports = { create, list };
+
+const volunteerByID = async (req, res, next, id) => {
+  try {
+    let volunteer = await Volunteer.findById(id);
+    if (!volunteer)
+      return res.status("400").json({
+        error: "Volunteer not found",
+      });
+    req.profile = volunteer;
+    next();
+  } catch (err) {
+    return res.status("400").json({
+      error: "Could not retrieve volunteer",
+    });
+  }
+};
+
+const remove = async (req, res) => {
+  try {
+    let volunteer = req.profile;
+    let deletedVolunteer = await volunteer.remove();
+    res.json(deletedVolunteer);
+  } catch (err) {
+    return res.status(400).json({
+      error: getErrorMessage(err),
+    });
+  }
+};
+
+module.exports = { create, list, volunteerByID, remove };

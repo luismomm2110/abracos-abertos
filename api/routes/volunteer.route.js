@@ -7,4 +7,8 @@ router
   .post(volunteerCtrl.create)
   .get(volunteerCtrl.list);
 
+router.route("/api/volunteers/:volunteerID").delete(volunteerCtrl.remove);
+
+router.param("volunteerID", volunteerCtrl.volunteerByID);
+
 module.exports = router;
