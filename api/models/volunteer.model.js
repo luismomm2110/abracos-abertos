@@ -8,6 +8,7 @@ const VolunteerSchema = new mongoose.Schema({
   email: {
     type: String,
     unique: "Email já existe",
+    required: "Email obrigatório",
   },
   age: {
     type: Number,
@@ -22,7 +23,7 @@ const VolunteerSchema = new mongoose.Schema({
   },
   address: {
     type: "String",
-    required: "Endereço obrigatória",
+    required: "Endereço obrigatório",
   },
   educationalLevel: {
     type: "String",

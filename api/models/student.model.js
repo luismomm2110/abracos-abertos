@@ -5,9 +5,13 @@ const StudentSchema = new mongoose.Schema({
     type: String,
     required: "Nome obrigatório",
   },
-  email: {
-    type: String,
-    unique: "Email já existe",
+  parentName: {
+    type: "String",
+    required: "Pelo menos um nome de responsável deve ser informado",
+  },
+  parentTelephone: {
+    type: "String",
+    required: "Telefone do responsável deve ser informado",
   },
   age: {
     type: Number,
@@ -16,17 +20,13 @@ const StudentSchema = new mongoose.Schema({
   gender: {
     type: "String",
   },
-  cpf: {
-    type: "String",
-    required: "Cpf obrigatório",
-  },
   address: {
     type: "String",
     required: "Endereço obrigatória",
   },
-  educationalLevel: {
+  nationality: {
     type: "String",
-    required: "Escolaridade obrigatória",
+    required: "Deve ser informado país de origem",
   },
 });
 
