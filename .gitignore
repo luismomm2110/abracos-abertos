@@ -103,6 +103,9 @@ dist
 # TernJS port file
 .tern-port
 
-./api/configMongo.json
-
 .editorconfig
+
+/api/configMongo.json
+
+.vscode
+

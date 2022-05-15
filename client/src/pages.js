@@ -33,9 +33,5 @@ export function Contact() {
 }
 
 export function Volunteer() {
-  return (
-    <div>
-      <h1>[Volunteer]</h1>
-    </div>
-  );
+  return <h1>[Volunteer]</h1>;
 }
