@@ -1,0 +1,42 @@
+div.volunteerContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 80vh;
+  overflow: auto;
+}
+
+.volunteerContainer h1 {
+  color: #0d2140;
+  font-size: 2.65rem;
+  font-family: 'Cabin';
+}
+
+div.volunteerContainer::-webkit-scrollbar {
+  width: 10px;
+}
+
+div.volunteerContainer::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+div.volunteerContainer::-webkit-scrollbar-thumb {
+  background: #0d6efd;
+}
+
+div.volunteerContainer::-webkit-scrollbar-thumb:hover {
+  background: #0a4294;
+}
+
+form.volunteerForm {
+  width: 50vw;
+  flex-direction: column;
+}
+
+form.volunteerForm input {
+  margin-bottom: 0.5rem;
+}
+
+form.volunteerForm .btn.btn-primary {
+  margin-top: 1rem;
+}
