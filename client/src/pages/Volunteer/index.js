@@ -31,8 +31,8 @@ export default function Volunteer() {
     <div className="volunteerContainer">
       <h1>Voluntaria-se!</h1>
       <form className="volunteerForm">
-        <div class="form-row">
-          <div class="form-group col-md-3">
+        <div className="formRow">
+          <div class="form-group">
             <label for="inputName">Nome</label>
             <input
               type="name"
@@ -43,7 +43,7 @@ export default function Volunteer() {
               onChange={handleSubmit}
             />
           </div>
-          <div class="form-group col-md-3">
+          <div class="form-group col-md-6">
             <label for="inputEmail">Email</label>
             <input
               type="email"
@@ -54,7 +54,9 @@ export default function Volunteer() {
               onChange={handleSubmit}
             />
           </div>
-          <div class="form-group col-md-3">
+        </div>
+        <div className="formRow">
+          <div class="form-group">
             <label for="inputAge">Idade</label>
             <input
               type="age"
@@ -65,7 +67,7 @@ export default function Volunteer() {
               onChange={handleSubmit}
             />
           </div>
-          <div class="form-group col-md-3">
+          <div class="form-group col-md-6 ">
             <label for="inputCPF">CPF</label>
             <input
               type="cpf"
@@ -76,7 +78,9 @@ export default function Volunteer() {
               onChange={handleSubmit}
             />
           </div>
-          <div class="form-group col-md-3">
+        </div>
+        <div className="formRow">
+          <div class="form-group">
             <label for="inputEducationalLevel">Escolaridade</label>
             <input
               type="educationalLevel"
@@ -87,7 +91,7 @@ export default function Volunteer() {
               onChange={handleSubmit}
             />
           </div>
-          <div class="form-group col-md-3">
+          <div class="form-group col-md-6">
             <label for="inputAddress">Endereço</label>
             <input
               type="address"
@@ -98,7 +102,9 @@ export default function Volunteer() {
               onChange={handleSubmit}
             />
           </div>
-          <div class="form-group col-md-3">
+        </div>
+        <div className="formRow">
+          <div class="form-group">
             <label for="inputPhone">Telefone</label>
             <input
               type="phone"
@@ -109,15 +115,14 @@ export default function Volunteer() {
               onChange={handleSubmit}
             />
           </div>
+          <button
+            type="submit"
+            class="btn btn-primary col-md-6"
+            onClick={handleSubmit}
+          >
+            Enviar
+          </button>
         </div>
-
-        <button
-          type="submit"
-          class="btn btn-primary col-md-3"
-          onClick={handleSubmit}
-        >
-          Enviar
-        </button>
       </form>
     </div>
   );
