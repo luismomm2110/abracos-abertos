@@ -1,128 +1,119 @@
-import './styles.css';
-import { useState } from 'react';
-import axios from 'axios';
+import "./styles.css";
+import { useState } from "react";
+import axios from "axios";
 
 export default function Volunteer() {
-  const [email, setEmail] = useState('');
-  const [phone, setPhone] = useState('');
-  const [address, setAddress] = useState('');
-  const [scholarity, setScholarity] = useState('');
-  const [age, setAge] = useState(18);
+  const [formFields, setFormFields] = useState({
+    name: "",
+    email: "",
+    age: 18,
+    cpf: "",
+    educationalLevel: "",
+    address: "",
+    phone: "",
+  });
 
-  const handleEmail = event => {
-    setEmail(event.target.value);
-  }
-
-  const handlePhone = event => {
-    setPhone(event.target.value);
-  }
-
-  const handleAddress = event => {
-    setAddress(event.target.value);
-  }
-
-  const handleScholarity = event => {
-    setScholarity(event.target.value);
-  }
-
-  const handleAge = event => {
-    setAge(event.target.value);
-  }
-
-  const handleSubmit = event => {
+  const handleSubmit = (event) => {
     event.preventDefault();
+    setFormFields({ ...formFields, [event.target.name]: event.target.value });
 
-    const userInformation = {
-      email,
-      phone,
-      address,
-      scholarity,
-      age
-    };
-
-    if (!email.length || !phone.length || !address.length || !scholarity.length) {
-      alert('Preencha todos os campos');
-      return;
-    }
-
-    axios.post('http://localhost:9000/api/volunteers', userInformation)
-      .then(response => {
+    axios
+      .post("http://localhost:9000/api/volunteers", formFields)
+      .then((response) => {
         console.log(response.data);
       })
-      .catch(error => {
+      .catch((error) => {
         console.log(error.response.data);
       });
-  }
+  };
 
   return (
-    <div className='volunteerContainer'>
-      <h1>Voluntários</h1>
+    <div className="volunteerContainer">
+      <h1>Voluntaria-se!</h1>
       <form className="volunteerForm">
         <div class="form-row">
+          <div class="form-group col-md-3">
+            <label for="inputName">Nome</label>
+            <input
+              type="name"
+              class="form-control"
+              id="inputName"
+              name="name"
+              placeholder="Nome"
+              onChange={handleSubmit}
+            />
+          </div>
           <div class="form-group col-md-3">
             <label for="inputEmail">Email</label>
             <input
               type="email"
               class="form-control"
               id="inputEmail"
+              name="email"
               placeholder="Email"
-              value={email}
-              onChange={handleEmail}
+              onChange={handleSubmit}
             />
           </div>
           <div class="form-group col-md-3">
-            <label for="inputTel">Telefone</label>
-            <input
-              type="tel"
-              class="form-control"
-              id="inputTel"
-              placeholder="Telefone"
-              value={phone}
-              onChange={handlePhone}
-            />
-          </div>
-        </div>
-        <div class="form-group col-md-6">
-          <label for="inputAddress">Endereço</label>
-          <input
-            type="text"
-            class="form-control"
-            id="inputAddress"
-            placeholder="Endereço"
-            value={address}
-            onChange={handleAddress}
-          />
-        </div>
-        <div class="form-row">
-          <div class="form-group col-md-3">
-            <label for="inputScholarity">Escolaridade</label>
-            <input
-              type="text"
-              class="form-control"
-              id="inputScholarity"
-              placeholder='Escolaridade'
-              value={scholarity}
-              onChange={handleScholarity}
-            />
-          </div>
-          <div class="form-group col-md-1">
             <label for="inputAge">Idade</label>
             <input
-              type="number"
+              type="age"
               class="form-control"
               id="inputAge"
+              name="age"
               placeholder="Idade"
-              min={1}
-              max={100}
-              value={age}
-              onChange={handleAge}
+              onChange={handleSubmit}
+            />
+          </div>
+          <div class="form-group col-md-3">
+            <label for="inputCPF">CPF</label>
+            <input
+              type="cpf"
+              class="form-control"
+              id="inputCPF"
+              name="cpf"
+              placeholder="CPF"
+              onChange={handleSubmit}
+            />
+          </div>
+          <div class="form-group col-md-3">
+            <label for="inputEducationalLevel">Escolaridade</label>
+            <input
+              type="educationalLevel"
+              class="form-control"
+              id="inputEducationalLevel"
+              name="educationalLevel"
+              placeholder="Escolaridade"
+              onChange={handleSubmit}
+            />
+          </div>
+          <div class="form-group col-md-3">
+            <label for="inputAddress">Endereço</label>
+            <input
+              type="address"
+              class="form-control"
+              id="inputAdress"
+              name="address"
+              placeholder="Endereço"
+              onChange={handleSubmit}
+            />
+          </div>
+          <div class="form-group col-md-3">
+            <label for="inputPhone">Telefone</label>
+            <input
+              type="phone"
+              class="form-control"
+              id="inputAdress"
+              name="phone"
+              placeholder="Telefone"
+              onChange={handleSubmit}
             />
           </div>
         </div>
 
         <button
           type="submit"
-          class="btn btn-primary col-md-1"
+          class="btn btn-primary col-md-3"
           onClick={handleSubmit}
         >
           Enviar

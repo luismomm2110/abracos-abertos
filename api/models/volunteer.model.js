@@ -29,6 +29,10 @@ const VolunteerSchema = new mongoose.Schema({
     type: "String",
     required: "Escolaridade obrigatória",
   },
+  phone: {
+    type: "String",
+    required: "Telefone obrigatório",
+  },
 });
 
 const Volunteer = mongoose.model("Volunteer", VolunteerSchema);

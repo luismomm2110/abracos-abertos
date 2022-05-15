@@ -1,7 +1,6 @@
 div.volunteerContainer {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   height: 80vh;
   overflow: auto;
@@ -31,6 +30,7 @@ div.volunteerContainer::-webkit-scrollbar-thumb:hover {
 
 form.volunteerForm {
   width: 50vw;
+  flex-direction: column;
 }
 
 form.volunteerForm input {
