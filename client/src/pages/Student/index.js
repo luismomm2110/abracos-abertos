@@ -2,28 +2,29 @@ import "./styles.css";
 import { useState } from "react";
 import axios from "axios";
 
-export default function Volunteer() {
+export default function Student() {
   const initialValues = {
     name: "",
-    email: "",
+    parentName: "",
+    parentTelephone: "",
     age: "",
-    cpf: "",
-    educationalLevel: "",
+    nationality: "",
     address: "",
-    phone: "",
+    grade: "",
   };
 
-  const [formFields, setFormFields] = useState({ initialValues });
+  const [formFields, setFormFields] = useState(initialValues);
 
   const handleSubmit = (event) => {
     event.preventDefault();
 
     if (Object.values(formFields).some((field) => field.length === 0)) {
       alert("Preencha todos campos");
+      return;
     }
 
     axios
-      .post("http://localhost:9000/api/volunteers", formFields)
+      .post("http://localhost:9000/api/students", formFields)
       .then((response) => {
         console.log(response.data);
       })
@@ -31,22 +32,21 @@ export default function Volunteer() {
         console.log(error.response.data);
       });
 
-    setFormFields(() => ({ ...initialValues }));
+    setFormFields({ ...initialValues });
   };
 
   const handleInput = (event) => {
     event.preventDefault();
-    setFormFields(() => ({
-      ...formFields,
-      [event.target.name]: event.target.value,
-    }));
+    setFormFields({ ...formFields, [event.target.name]: event.target.value });
   };
 
   return (
-    <div className="App">
-      <form className="volunteerForm">
+    <div className="studentContainer">
+      <h1>Precisa de acompanhamento?</h1>
+      <h2>Insira os dados do aluno aqui!</h2>
+      <form className="studentForm">
         <div className="formRow">
-          <div class="form-group">
+          <div class="form-group ">
             <label for="inputName">Nome</label>
             <input
               type="name"
@@ -58,15 +58,15 @@ export default function Volunteer() {
               onChange={handleInput}
             />
           </div>
-          <div class="form-group col-md-6">
-            <label for="inputEmail">Email</label>
+          <div class="form-group col-md-6 col-xs-12">
+            <label for="inputParentName">Nome do Responsável</label>
             <input
-              type="email"
+              type="parentName"
               class="form-control"
-              id="inputEmail"
-              name="email"
-              value={formFields.email}
-              placeholder="Email"
+              id="inputParentName"
+              name="parentName"
+              placeholder="Nome do Responsável"
+              value={formFields.parentName}
               onChange={handleInput}
             />
           </div>
@@ -85,32 +85,20 @@ export default function Volunteer() {
             />
           </div>
           <div class="form-group col-md-6 ">
-            <label for="inputCPF">CPF</label>
+            <label for="inputNationality">País de Origem</label>
             <input
-              type="cpf"
+              type="nationality"
               class="form-control"
-              id="inputCPF"
-              name="cpf"
-              placeholder="CPF"
-              value={formFields.cpf}
+              id="inputNationality"
+              name="nationality"
+              placeholder="País de Origem"
+              value={formFields.nationality}
               onChange={handleInput}
             />
           </div>
         </div>
         <div className="formRow">
           <div class="form-group">
-            <label for="inputEducationalLevel">Escolaridade</label>
-            <input
-              type="educationalLevel"
-              class="form-control"
-              id="inputEducationalLevel"
-              name="educationalLevel"
-              value={formFields.educationalLevel}
-              placeholder="Escolaridade"
-              onChange={handleInput}
-            />
-          </div>
-          <div class="form-group col-md-6">
             <label for="inputAddress">Endereço</label>
             <input
               type="address"
@@ -122,17 +110,29 @@ export default function Volunteer() {
               onChange={handleInput}
             />
           </div>
+          <div class="form-group col-md-6">
+            <label for="inputGrade">Ano do aluno na escola</label>
+            <input
+              type="grade"
+              class="form-control"
+              id="inputGrade"
+              name="grade"
+              placeholder="Ano Escolar"
+              value={formFields.grade}
+              onChange={handleInput}
+            />
+          </div>
         </div>
         <div className="formRow">
           <div class="form-group">
-            <label for="inputPhone">Telefone</label>
+            <label for="inputPhone">Telefone dos Resposáveis</label>
             <input
               type="phone"
               class="form-control"
               id="inputAdress"
-              name="phone"
-              placeholder="Telefone"
-              value={formFields.phone}
+              name="parentTelephone"
+              placeholder="Telefone dos Responsáveis"
+              value={formFields.parentTelephone}
               onChange={handleInput}
             />
           </div>

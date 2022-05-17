@@ -1,11 +1,10 @@
 import { Navbar } from "react-bootstrap";
+import styles from "./styles";
 
-export function Footer() {
+export default function Footer() {
   return (
-    <Navbar style={{ backgroundColor: "green" }} fixed="bottom">
-      foo
+    <Navbar style={styles} fixed="bottom">
+      © Copyright 2022 Abraços Abertos | Todos os Direitos Reservados.
     </Navbar>
   );
 }
-
-export default Navbar;

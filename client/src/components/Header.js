@@ -12,6 +12,7 @@ const Header = () => {
             </Navbar.Brand>
             <Nav.Link href="about">Quem somos</Nav.Link>
             <Nav.Link href="volunteer">Seja um voluntário</Nav.Link>
+            <Nav.Link href="student">Busque apoio!</Nav.Link>
             <Nav.Link href="contact">Contato</Nav.Link>
           </Nav>
         </Container>
