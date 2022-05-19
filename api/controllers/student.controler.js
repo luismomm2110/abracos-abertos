@@ -17,7 +17,9 @@ const create = async (req, res) => {
 
 const list = async (req, res) => {
   try {
-    let students = await Student.find().select("name email age");
+    let students = await Student.find().select(
+      "name parentName age parentTelephone address nationality"
+    );
     res.json(students);
   } catch (err) {
     return res.status(400).json({

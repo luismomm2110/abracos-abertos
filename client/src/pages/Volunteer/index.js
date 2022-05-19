@@ -20,6 +20,7 @@ export default function Volunteer() {
 
     if (Object.values(formFields).some((field) => field.length === 0)) {
       alert("Preencha todos campos");
+      return;
     }
 
     axios
