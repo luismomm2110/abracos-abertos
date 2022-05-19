@@ -18,7 +18,9 @@ const create = async (req, res) => {
 
 const list = async (req, res) => {
   try {
-    let users = await Volunteer.find().select("name email age");
+    let users = await Volunteer.find().select(
+      "name email age cpf address educationalLevel phone"
+    );
     res.json(users);
   } catch (err) {
     return res.status(400).json({
@@ -26,7 +28,6 @@ const list = async (req, res) => {
     });
   }
 };
-
 
 const volunteerByID = async (req, res, next, id) => {
   try {
