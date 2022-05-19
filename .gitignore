@@ -103,7 +103,9 @@ dist
 # TernJS port file
 .tern-port
 
+.editorconfig
+
 /api/configMongo.json
 
-# Removing VSCode stuff
 .vscode
+
