@@ -4,7 +4,7 @@ const styles = {
   backgroundColor: "#005298",
   color: "#FFF",
   fontSize: "0.8rem",
-  fontWeight: 600
+  fontWeight: 600,
 };
 
 export default styles;
