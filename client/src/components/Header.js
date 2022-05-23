@@ -10,12 +10,12 @@ const Header = () => {
             <Navbar.Brand href="/">
               <img src={logo} height="50" width="150" alt="logo" />
             </Navbar.Brand>
-            <Nav.Link href="about">Quem somos</Nav.Link>
-            <Nav.Link href="volunteer">Seja um voluntário</Nav.Link>
-            <Nav.Link href="student">Busque apoio!</Nav.Link>
-            <Nav.Link href="contact">Contato</Nav.Link>
-            <Nav.Link href="listavoluntarios">Lista de Voluntários</Nav.Link>
-            <Nav.Link href="listaestudantes">Lista de Estudantes</Nav.Link>
+            <Nav.Link href="/about">Quem somos</Nav.Link>
+            <Nav.Link href="/volunteer">Seja um voluntário</Nav.Link>
+            <Nav.Link href="/student">Busque apoio!</Nav.Link>
+            <Nav.Link href="/contact">Contato</Nav.Link>
+            <Nav.Link href="/listavoluntarios">Lista de Voluntários</Nav.Link>
+            <Nav.Link href="/listaestudantes">Lista de Estudantes</Nav.Link>
           </Nav>
         </Container>
       </Navbar>

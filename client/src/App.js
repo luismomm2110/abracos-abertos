@@ -11,6 +11,7 @@ import Contact from "./pages/Contact";
 import Volunteer from "./pages/Volunteer";
 import Student from "./pages/Student";
 import ListVolunteers from "./pages/ListVolunteers";
+import EditVolunteer from "./pages/ListVolunteers/EditVolunteer.js";
 import ListStudents from "./pages/ListStudents";
 
 function App() {
@@ -19,13 +20,18 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
+        <Route path="about" element={<About />} />
         <Route path="/history" element={<History />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/volunteer" element={<Volunteer />} />
         <Route path="/student" element={<Student />} />
-        <Route path="/listavoluntarios" element={<ListVolunteers />} />
+        <Route path="listavoluntarios" element={<ListVolunteers />} />
         <Route path="/listaestudantes" element={<ListStudents />} />
+        <Route
+          path="/listavoluntarios/editarvoluntario/:id"
+          element={<EditVolunteer />}
+        />
+        <Route path="*" element={<div>Nao achei</div>} />
       </Routes>
       <Footer />
     </div>
