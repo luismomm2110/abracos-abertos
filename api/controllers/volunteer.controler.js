@@ -57,4 +57,28 @@ const remove = async (req, res) => {
   }
 };
 
-module.exports = { create, list, volunteerByID, remove };
+const get = async (req, res) => {
+  try {
+    let volunteer = req.profile;
+    res.json(volunteer);
+  } catch (err) {
+    return res.status(400).json({
+      error: getErrorMessage(err),
+    });
+  }
+};
+
+const update = async (req, res) => {
+  try {
+    let user = req.profile;
+    user = extend(user, req.body);
+    await user.save();
+    res.json(user);
+  } catch (err) {
+    return res.status(400).json({
+      error: errorHandler.getErrorMessage(err),
+    });
+  }
+};
+
+module.exports = { create, list, volunteerByID, remove, get, update };
