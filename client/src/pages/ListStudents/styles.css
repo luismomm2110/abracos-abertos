@@ -1,4 +1,4 @@
-div.listVolunteers {
+div.listStudents {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -14,12 +14,12 @@ div.listVolunteers {
   display: flex;
 }
 
-div.buttonRow {
+div.formRow { 
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 30px;
+  flex-wrap: wrap;
 }
 
 div.studentContainer::-webkit-scrollbar {
@@ -46,7 +46,6 @@ form.studentForm input {
   margin-bottom: 0.5rem;
 }
 
-.btn.btn-primary {
+form.studentForm .btn.btn-primary {
   margin-top: 1rem;
-  margin-right: 10px;
 }

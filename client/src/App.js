@@ -13,6 +13,9 @@ import Student from "./pages/Student";
 import ListVolunteers from "./pages/ListVolunteers";
 import EditVolunteer from "./pages/ListVolunteers/EditVolunteer.js";
 import ListStudents from "./pages/ListStudents";
+import EditStudent from "./pages/ListStudents/EditStudent.js";
+import Admin from "./pages/Admin/Login.js";
+import AdmControl from "./pages/Admin/Control";
 
 function App() {
   return (
@@ -25,13 +28,19 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/volunteer" element={<Volunteer />} />
         <Route path="/student" element={<Student />} />
-        <Route path="listavoluntarios" element={<ListVolunteers />} />
-        <Route path="/listaestudantes" element={<ListStudents />} />
+        <Route path="/control/listavoluntarios" element={<ListVolunteers />} />
+        <Route path="/control/listaestudantes" element={<ListStudents />} />
         <Route
           path="/listavoluntarios/editarvoluntario/:id"
           element={<EditVolunteer />}
         />
-        <Route path="*" element={<div>Nao achei</div>} />
+        <Route
+          path="/listaestudantes/editarestudante/:id"
+          element={<EditStudent />}
+        />
+        <Route path="/admin" element={<Admin />} />
+        <Route path="/control" element={<AdmControl />} />
+        <Route path="*" element={<div>404</div>} />
       </Routes>
       <Footer />
     </div>
