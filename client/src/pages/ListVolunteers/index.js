@@ -26,7 +26,7 @@ const ListVolunteers = () => {
 
     return (
       <>
-        <h4>Voluntario</h4>
+        <h4>Voluntário</h4>
         <p>Nome: {props.name}</p>
         <p>Email: {props.email}</p>
         <p>Idade: {props.age}</p>
@@ -34,22 +34,18 @@ const ListVolunteers = () => {
         <p>Escolaridade: {props.educationalLevel}</p>
         <p>Endereço {props.address}</p>
         <p>Telefone {props.phone}</p>
-        <div>
+        <div className="buttonRow">
           <button
             type="submit"
-            class="btn btn-primary col-md-6"
+            class="btn btn-primary"
             onClick={() => navigate(`editarvoluntario/${props._id}`)}
           >
-            Editar Voluntário
+            Editar
+          </button>
+          <button type="submit" onClick={handleDelete} class="btn btn-primary">
+            Excluir
           </button>
         </div>
-        <button
-          type="submit"
-          onClick={handleDelete}
-          class="btn btn-primary col-md-6"
-        >
-          Deletar Voluntário
-        </button>
       </>
     );
   }

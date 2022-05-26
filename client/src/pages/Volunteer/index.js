@@ -45,6 +45,7 @@ export default function Volunteer() {
 
   return (
     <div className="App">
+      <h4>Seja um voluntário!</h4>
       <form className="volunteerForm">
         <div className="formRow">
           <div class="form-group">
@@ -59,7 +60,7 @@ export default function Volunteer() {
               onChange={handleInput}
             />
           </div>
-          <div class="form-group col-md-6">
+          <div class="form-group ">
             <label for="inputEmail">Email</label>
             <input
               type="email"
@@ -85,7 +86,7 @@ export default function Volunteer() {
               onChange={handleInput}
             />
           </div>
-          <div class="form-group col-md-6 ">
+          <div class="form-group  ">
             <label for="inputCPF">CPF</label>
             <input
               type="cpf"
@@ -111,7 +112,7 @@ export default function Volunteer() {
               onChange={handleInput}
             />
           </div>
-          <div class="form-group col-md-6">
+          <div class="form-group ">
             <label for="inputAddress">Endereço</label>
             <input
               type="address"
@@ -139,7 +140,8 @@ export default function Volunteer() {
           </div>
           <button
             type="submit"
-            class="btn btn-primary col-md-6"
+            class="btn btn-primary "
+            style={{ width: "45%" }}
             onClick={handleSubmit}
           >
             Enviar

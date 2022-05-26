@@ -1,8 +1,10 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router";
 
 const ListStudents = () => {
   const [students, setStudents] = useState();
+  const navigate = useNavigate();
 
   function SingleStudent(props) {
     const handleDelete = (event) => {
@@ -28,13 +30,22 @@ const ListStudents = () => {
         <p>Telefone do parente: {props.parentTelephone}</p>
         <p>Nacionalidade: {props.nationality}</p>
         <p>Endereço: {props.address}</p>
-        <button
-          type="submit"
-          onClick={handleDelete}
-          class="btn btn-primary col-md-6"
-        >
-          Deletar Estudante
-        </button>
+        <div className="buttonRow">
+          <button
+            type="submit"
+            class="btn btn-primary"
+            onClick={() => navigate(`editarestudante/${props._id}`)}
+          >
+            Editar
+          </button>
+          <button
+            type="submit"
+            onClick={handleDelete}
+            class="btn btn-primary col-md-6"
+          >
+            Excluir
+          </button>
+        </div>
       </>
     );
   }
