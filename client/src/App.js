@@ -15,7 +15,7 @@ import EditVolunteer from "./pages/ListVolunteers/EditVolunteer.js";
 import ListStudents from "./pages/ListStudents";
 import EditStudent from "./pages/ListStudents/EditStudent.js";
 import Admin from "./pages/Admin/Login.js";
-import AdmControl from "./pages/Admin/Control";
+import Control from "./pages/Admin/Control";
 
 function App() {
   return (
@@ -39,7 +39,7 @@ function App() {
           element={<EditStudent />}
         />
         <Route path="/admin" element={<Admin />} />
-        <Route path="/control" element={<AdmControl />} />
+        <Route path="/control" element={<Control />} />
         <Route path="*" element={<div>404</div>} />
       </Routes>
       <Footer />

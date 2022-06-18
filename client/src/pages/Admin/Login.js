@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router";
 
 export default function Login() {
   const initialValues = {
@@ -7,6 +8,7 @@ export default function Login() {
   };
 
   const [admState, setAdmState] = useState(initialValues);
+  const navigate = useNavigate();
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -15,6 +17,8 @@ export default function Login() {
       alert("Credenciais erradas");
       return;
     }
+
+    return navigate("/control");
   };
 
   const handleInput = (event) => {
