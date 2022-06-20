@@ -15,6 +15,7 @@
     "react-router": "^6.3.0",
     "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.1",
+    "styled-components": "^5.3.5",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
@@ -24,7 +25,8 @@
     "eject": "react-scripts eject"
   },
   "resolutions": {
-    "autoprefixer": "10.4.5"
+    "autoprefixer": "10.4.5",
+    "styled-components": "^5"
   },
   "eslintConfig": {
     "extends": [

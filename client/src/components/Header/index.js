@@ -1,22 +1,37 @@
 import { Navbar, Nav, Container } from "react-bootstrap";
+import { NavContainer, LinkText } from './styles';
 import logo from "../../assets/logo.png";
 
-const Header = () => {
+function Header() {
   return (
-    <div style={{ display: "flex", justifyContent: "center" }}>
+    <NavContainer>
       <Navbar expand="sm">
         <Container>
-          <Nav>
+          <Nav style={{ display: "flex", alignItems: "center" }}>
             <Navbar.Brand href="/">
-              <img src={logo} height="50" width="150" alt="logo" />
+              <img
+                src={logo}
+                height="60px"
+                width="130px"
+                alt="logo"
+              />
             </Navbar.Brand>
-            <Nav.Link href="about">Quem somos</Nav.Link>
-            <Nav.Link href="volunteer">Seja um voluntário</Nav.Link>
-            <Nav.Link href="contact">Contato</Nav.Link>
+            <Nav.Link href="/about">
+              <LinkText>Quem somos</LinkText>
+            </Nav.Link>
+            <Nav.Link href="/volunteer">
+              <LinkText>Seja um voluntário</LinkText>
+            </Nav.Link>
+            <Nav.Link href="/student">
+              <LinkText>Busque apoio!</LinkText>
+            </Nav.Link>
+            <Nav.Link href="/contact">
+              <LinkText>Contato</LinkText>
+            </Nav.Link>
           </Nav>
         </Container>
       </Navbar>
-    </div>
+    </NavContainer>
   );
 };
 
