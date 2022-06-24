@@ -1,6 +1,14 @@
 var mongoose = require("mongoose");
+var crypto = require("crypto");
 
 const AdminSchema = mongoose.Schema({
+  email: {
+    type: String,
+    trim: true,
+    unique: "Email already exists",
+    match: [/.+\@.+\..+/, "Please fill a valid email address"],
+    required: "Email is required",
+  },
   hashed_password: {
     type: String,
     required: "Password is required",
@@ -18,6 +26,15 @@ AdminSchema.virtual("password")
     return this._password;
   });
 
+AdminSchema.path("hashed_password").validate(function (v) {
+  if (this._password && this._password.length < 6) {
+    this.invalidate("password", "Password must be at least 6 characters.");
+  }
+  if (this.isNew && !this._password) {
+    this.invalidate("password", "Password is required");
+  }
+}, null);
+
 AdminSchema.methods = {
   authenticate: function (plainText) {
     return this.encryptPassword(plainText) === this.hashed_password;
@@ -30,19 +47,15 @@ AdminSchema.methods = {
         .update(password)
         .digest("hex");
     } catch (err) {
+      console.log(err);
       return "";
     }
   },
   makeSalt: function () {
-    return Math.round(new Date().valueOf * Math.random());
+    return Math.round(new Date().valueOf() * Math.random());
   },
 };
 
-AdminSchema.path("hashed_password").validate(function (v) {
-  if (this._password && this._password.length < 6) {
-    this.invalidate("password", "Password must be at least 6 characters.");
-  }
-  if (this.isNew && !this._password) {
-    this.invalidate("password", "Password is required");
-  }
-}, null);
+const Admin = mongoose.model("admin", AdminSchema);
+
+module.exports = Admin;
