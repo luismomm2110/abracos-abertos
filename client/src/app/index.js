@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import { AppWrapper } from './styles';
 
@@ -18,17 +19,23 @@ import Admin from "../pages/Admin/Login.js";
 import AdmControl from "../pages/Admin/Control";
 
 function App() {
+  const [isFixed, setIsFixed] = useState(true);
+
+  const handleFooterBottom = (isFixed) => {
+    setIsFixed(isFixed);
+  };
+
   return (
     <AppWrapper>
       <Header />
       <Routes>
         <Route
           path="/"
-          element={<Home />}
+          element={<Home isFooterFixed={handleFooterBottom} />}
         />
         <Route
           path="about"
-          element={<About />}
+          element={<About isFooterFixed={handleFooterBottom} />}
         />
         <Route
           path="/history"
@@ -75,7 +82,7 @@ function App() {
           element={<div>404</div>}
         />
       </Routes>
-      <Footer />
+      <Footer isFixed={isFixed} />
     </AppWrapper>
   );
 }
