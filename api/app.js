@@ -9,6 +9,7 @@ var urlMongo = require("./configMongo");
 var indexRouter = require("./routes/index");
 var volunteerRouter = require("./routes/volunteer.route.js");
 var studentRouter = require("./routes/student.route.js");
+var adminRouter = require("./routes/admin.route");
 var authRoutes = require("./routes/auth.routes");
 
 var app = express();
@@ -28,6 +29,7 @@ app.use("/", indexRouter);
 app.use("/", volunteerRouter);
 app.use("/", studentRouter);
 app.use("/", authRoutes);
+app.use("/", adminRouter);
 
 app.use(function (req, res, next) {
   next(createError(404));
@@ -52,6 +54,15 @@ const connectionParams = {
 
 mongoose.connect(urlMongo.url, connectionParams).catch((err) => {
   console.error(`Error connecting to the database. \n${err}`);
+});
+
+app.use((err, req, res, next) => {
+  if (err.name === "UnauthorizedError") {
+    res.status(401).json({ error: err.name + ": " + err.message });
+  } else if (err) {
+    res.status(400).json({ error: err.name + ": " + err.message });
+    console.log(err);
+  }
 });
 
 module.exports = app;
