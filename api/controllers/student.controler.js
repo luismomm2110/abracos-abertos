@@ -1,5 +1,7 @@
-var Student = require("../models/student.model");
-var getErrorMessage = require("../helpers/dbErrorHandle");
+const getErrorMessage = require("../helpers/dbErrorHandle");
+const Student = require("../models/student.model");
+const Volunteer = require("../models/volunteer.model");
+var extend = require("loadsh/extend");
 
 const create = async (req, res) => {
   const student = new Student(req.body);
@@ -56,4 +58,37 @@ const remove = async (req, res) => {
   }
 };
 
-module.exports = { create, list, studentByID, remove };
+const update = async (req, res) => {
+  try {
+    let student = req.profile;
+    student.volunteerId = req.body.volunteerId;
+    await insertVolunteer(student);
+    student.volunteerId = req.body.volunteerId;
+    student = extend(student, req.body);
+    await student.save();
+    res.json(student);
+  } catch (err) {
+    return res.status(400).json({
+      error: getErrorMessage(err),
+    });
+  }
+
+  async function insertVolunteer(student) {
+    try {
+      let volunteer = await Volunteer.findById(req.body.volunteer);
+      console.log(volunteer);
+      let contains = volunteer.students.some((item) => {
+        return JSON.stringify(item) === JSON.stringify(student.id);
+      });
+      if (!contains) {
+        volunteer.students.push(student);
+      }
+      await volunteer.save();
+    } catch (err) {
+      console.log(err);
+      throw err;
+    }
+  }
+};
+
+module.exports = { create, list, studentByID, remove, update };

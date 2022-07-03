@@ -1,4 +1,5 @@
 var mongoose = require("mongoose");
+const Schema = mongoose.Schema;
 
 const StudentSchema = new mongoose.Schema({
   name: {
@@ -27,6 +28,11 @@ const StudentSchema = new mongoose.Schema({
   nationality: {
     type: "String",
     required: "Deve ser informado país de origem",
+  },
+  volunteer: {
+    type: Schema.Types.ObjectId,
+    ref: "Volunteer",
+    unique: true,
   },
 });
 

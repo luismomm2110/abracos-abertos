@@ -9,7 +9,9 @@ var urlMongo = require("./configMongo");
 var indexRouter = require("./routes/index");
 var volunteerRouter = require("./routes/volunteer.route.js");
 var studentRouter = require("./routes/student.route.js");
+var candidateRouter = require("./routes/candidate.route.js");
 var authRoutes = require("./routes/auth.routes");
+
 
 var app = express();
 
@@ -27,6 +29,7 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use("/", indexRouter);
 app.use("/", volunteerRouter);
 app.use("/", studentRouter);
+app.use("/", candidateRouter);
 app.use("/", authRoutes);
 
 app.use(function (req, res, next) {

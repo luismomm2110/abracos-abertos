@@ -1,7 +1,7 @@
 var mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const VolunteerSchema = new mongoose.Schema({
+const CandidateSchema = new mongoose.Schema({
   name: {
     type: String,
     required: "Nome obrigatório",
@@ -34,14 +34,8 @@ const VolunteerSchema = new mongoose.Schema({
     type: "String",
     required: "Telefone obrigatório",
   },
-  students: [
-    {
-      type: Schema.Types.ObjectId,
-      ref: "Student",
-    },
-  ],
 });
 
-const Volunteer = mongoose.model("Volunteer", VolunteerSchema);
+const Candidate = mongoose.model("Candidate", CandidateSchema);
 
-module.exports = Volunteer;
+module.exports = Candidate;
