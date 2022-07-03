@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import auth from "../../auth/api-helper";
 import axios from "axios";
 import { useNavigate } from "react-router";
 
@@ -57,19 +58,23 @@ const ListStudents = () => {
       .catch(console.error);
   }, []);
 
-  if (students) {
-    return (
-      <>
-        <div className="listStudents">
-          {students.map((student) => (
-            <SingleStudent {...student} />
-          ))}
-        </div>
-      </>
-    );
+  if (auth.isAuthenticated()) {
+    if (students) {
+      return (
+        <>
+          <div className="listStudents">
+            {students.map((student) => (
+              <SingleStudent {...student} />
+            ))}
+          </div>
+        </>
+      );
+    }
+
+    return <div> Sem estudantes</div>;
   }
 
-  return <div> Sem estudantes</div>;
+  return navigate(`/control`);
 };
 
 export default ListStudents;

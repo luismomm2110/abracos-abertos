@@ -1,4 +1,7 @@
 import { useState } from "react";
+import { useNavigate } from "react-router";
+import { signin } from "../../auth/api-auth.js";
+import auth from "../../auth/api-helper.js";
 
 export default function Login() {
   const initialValues = {
@@ -7,14 +10,27 @@ export default function Login() {
   };
 
   const [admState, setAdmState] = useState(initialValues);
+  const [loginStatus, setLoginStatus] = useState("");
+  const navigate = useNavigate();
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(admState.login);
-    if (Object.values(admState).some((field) => field !== "admin")) {
-      alert("Credenciais erradas");
-      return;
-    }
+    const admin = {
+      email: admState.login || undefined,
+      password: admState.password || undefined,
+    };
+
+    signin(admin).then((data) => {
+      if (data.error) {
+        setLoginStatus("Usuário e/ou senha inválida");
+        setAdmState({ ...initialValues, error: data.error });
+      } else {
+        auth.authenticate(data, () => {
+          setAdmState({ ...admState, error: "", redirectToReferrer: true });
+          return navigate("/control");
+        });
+      }
+    });
   };
 
   const handleInput = (event) => {
@@ -63,6 +79,7 @@ export default function Login() {
         >
           Enviar
         </button>
+        <p>{loginStatus} </p>
       </form>
     </div>
   );

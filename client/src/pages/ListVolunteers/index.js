@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router";
 import axios from "axios";
+import auth from "../../auth/api-helper";
 
 const ListVolunteers = () => {
   const [volunteers, setVolunteers] = useState();
@@ -57,15 +58,19 @@ const ListVolunteers = () => {
       .catch(console.error);
   }, []);
 
-  if (volunteers) {
-    return (
-      <div className="listVolunteers">
-        {volunteers.map((volunteer, i) => (
-          <SingleVolunteer key={i} {...volunteer} />
-        ))}
-      </div>
-    );
+  if (auth.isAuthenticated) {
+    if (volunteers) {
+      return (
+        <div className="listVolunteers">
+          {volunteers.map((volunteer, i) => (
+            <SingleVolunteer key={i} {...volunteer} />
+          ))}
+        </div>
+      );
+    }
+    return <div>Nenhum voluntario</div>;
   }
+  return navigate(`control`);
 };
 
 export default ListVolunteers;
