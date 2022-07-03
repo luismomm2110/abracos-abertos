@@ -18,7 +18,6 @@ const getUniqueErrorMessage = (err) => {
 
 const getErrorMessage = (err) => {
   let message = "";
-
   if (err.code) {
     switch (err.code) {
       case 11000:
@@ -34,6 +33,9 @@ const getErrorMessage = (err) => {
     }
   }
 
+  if (message == null && err.message != null) {
+    message = err.message;
+  }
   return message;
 };
 
