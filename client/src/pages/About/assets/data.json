@@ -1,0 +1,39 @@
+{
+  "persons": [
+    {
+      "name": "Regina Belletato Fonseca Santini",
+      "job": "Jornalista",
+      "description": [
+        "Adoro gente de todas as idades, culturas, cores, formas e pensamentos. O meu programa favorito é ir à praia, tomar sol e nadar.", "Faço parte do projeto Abraços Abertos desde setembro de 2019. Na EEB Prof Maria Amin Ghanem.",
+        "Seguimos firmes no propósito de ficar mais perto dos imigrantes, mesmo que virtualmente entendendo suas dores e seus anseios. E tentando ajudar seja ensinando algo, motivando ou simplesmente lembrando que amanhã tem aula."
+      ],
+      "picturePath": "regina.jpg",
+      "altToPicture": "jornalista regina",
+      "isReversed": false
+    },
+    {
+      "name": "Luis Antonio Momm Duarte",
+      "job": "Engenheiro de Software",
+      "description": [
+        "Sempre gostei de ajudar meus amigos no colégio, principalmente em matemática, como uma forma de aprender tanto tecnicamente quanto pessoalmente falando.",
+        "O Projeto Abraços Abertos, portanto, me atraiu justamente por juntar essa ajuda com outro grande interesse meu: A imigração. Sempre me vi como ser humano antes de joinvillense catarinense e brasileiro e, por isso, acredito que todos devem ter  mesmas oportunidades independentemente de onde nasceram.",
+        "Nosso projeto, o qual entrei em 2020, é a melhor forma que encontrei de facilitar o acolhimento de pessoas de outras nacionalidades e com ele, acredito, aprendi muito mais que ensinei."
+      ],
+      "picturePath": "luis.jpg",
+      "altToPicture": "engenheiro Luis",
+      "isReversed": true
+    },
+    {
+      "name": "Patricia Stahl Gaglioti",
+      "job": "Jornalista",
+      "description": [
+        "Por formação, sou jornalista e cheguei até o projeto inspirada por outra jornalista, a Manu Torres.",
+        "Faço parte do projeto Abraços Abertos desde setembro de 2019. Na EEB Prof Maria Amin Ghanem.",
+        "Seguimos firmes no propósito de ficar mais perto dos imigrantes, mesmo que virtualmente entendendo suas dores e seus anseios. E tentando ajudar seja ensinando algo motivando ou simplesmente lembrando que amanhã tem aula."
+      ],
+      "picturePath": "patricia.jpg",
+      "altToPicture": "jornalista Patricia",
+      "isReversed": false
+    }
+  ]
+}
