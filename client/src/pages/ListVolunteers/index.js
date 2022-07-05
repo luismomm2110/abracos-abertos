@@ -25,6 +25,12 @@ const ListVolunteers = () => {
         });
     };
 
+    const students = props.students
+      .map((student) => {
+        return student.name;
+      })
+      .join(", ");
+
     return (
       <>
         <h4>Voluntário</h4>
@@ -35,6 +41,7 @@ const ListVolunteers = () => {
         <p>Escolaridade: {props.educationalLevel}</p>
         <p>Endereço {props.address}</p>
         <p>Telefone {props.phone}</p>
+        <p>Estudantes: {students}</p>
         <div className="buttonRow">
           <button
             type="submit"
