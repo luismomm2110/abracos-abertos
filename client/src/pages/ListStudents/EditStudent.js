@@ -27,6 +27,14 @@ export default function EditStudent() {
 
   const [formFields, setFormFields] = useState(currentStudent);
 
+  const onNewVolunteer = (idVolunteer, nameVolunteer) => {
+    const newFormFields = [
+      ...formFields,
+      { _id: idVolunteer, name: nameVolunteer },
+    ];
+    setFormFields(newFormFields);
+  };
+
   if (currentStudent.length !== 0) {
     const handleSubmit = (event) => {
       event.preventDefault();
@@ -137,11 +145,17 @@ export default function EditStudent() {
               />
             </div>
           </div>
-          <VolunteerCard />
+          <div className="col-md-12">
+            <VolunteerCard
+              volunteer={currentStudent.volunteer.name}
+              data={volunteers}
+              onNewVolunteer={onNewVolunteer}
+            />
+          </div>
           <div className="formRow">
             <button
               type="submit"
-              class="btn btn-primary col-md-6"
+              class="btn btn-primary col-md-12"
               onClick={handleSubmit}
             >
               Enviar

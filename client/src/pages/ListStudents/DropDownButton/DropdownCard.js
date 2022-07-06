@@ -1,23 +1,30 @@
-import DropdownButton from "react-bootstrap/DropdownButton";
 import Dropdown from "react-bootstrap/Dropdown";
+import DropdownButton from "react-bootstrap/DropdownButton";
+import { useState } from "react";
 
-const VolunteerCard = ({ data }) => {
+const VolunteerCard = ({
+  data: volunteers = [],
+  volunteer = "",
+  onNewVolunteer = (f) => f,
+}) => {
+  const [value, setValue] = useState(volunteer.name);
+
   const handleSelect = (e) => {
-    console.log(e);
+    console.log(volunteer);
+    setValue(e);
   };
 
   return (
-    <DropdownButton
-      alignRight
-      title="Dropdown right"
-      id="dropdown-menu-align-right"
-      onSelect={handleSelect}
-    >
-      <Dropdown.Item eventKey="option-1">option-1</Dropdown.Item>
-      <Dropdown.Item eventKey="option-2">option-2</Dropdown.Item>
-      <Dropdown.Item eventKey="option-3">option 3</Dropdown.Item>
+    <DropdownButton title={value} onSelect={handleSelect}>
+      <Dropdown.Item eventKey={"Nenhum Voluntário"}>
+        Nenhum voluntário
+      </Dropdown.Item>
+      {volunteers.map((volunteer) => (
+        <Dropdown.Item eventKey={volunteer.name}>
+          {volunteer.name}
+        </Dropdown.Item>
+      ))}
       <Dropdown.Divider />
-      <Dropdown.Item eventKey="some link">some link</Dropdown.Item>
     </DropdownButton>
   );
 };

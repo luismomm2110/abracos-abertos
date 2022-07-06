@@ -1,9 +1,9 @@
-import { Link, Navigate, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import auth from "../../auth/api-helper";
 
 export default function AdmControl() {
   const navigate = useNavigate();
-  if (auth.isAuthenticated()) {
+  if (!auth.isAuthenticated()) {
     return navigate("/admin");
   }
 
