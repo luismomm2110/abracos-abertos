@@ -1,0 +1,52 @@
+div.listVolunteers {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: center;
+  justify-content: center;
+  margin-bottom: 100px;
+}
+
+.studentContainer h1 {
+  color: #0d2140;
+  font-size: 2.65rem;
+  font-family: 'Cabin';
+  display: flex;
+}
+
+div.buttonRow {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+
+div.studentContainer::-webkit-scrollbar {
+  width: 10px;
+}
+
+div.studentContainer::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+div.studentContainer::-webkit-scrollbar-thumb {
+  background: #0d6efd;
+}
+
+div.studentContainer::-webkit-scrollbar-thumb:hover {
+  background: #0a4294;
+}
+
+form.studentForm {
+  width: 50vw;
+}
+
+form.studentForm input {
+  margin-bottom: 0.5rem;
+}
+
+.btn.btn-primary {
+  margin-top: 1rem;
+  margin-right: 10px;
+}
