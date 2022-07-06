@@ -31,6 +31,7 @@ const ListStudents = () => {
         <p>Telefone do parente: {props.parentTelephone}</p>
         <p>Nacionalidade: {props.nationality}</p>
         <p>Endereço: {props.address}</p>
+        <p>Tutor: {props.volunteer.name} </p>
         <div className="buttonRow">
           <button
             type="submit"

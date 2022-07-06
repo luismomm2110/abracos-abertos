@@ -28,9 +28,20 @@ const list = async (req, res) => {
   }
 };
 
+const get = async (req, res) => {
+  try {
+    let student = req.profile;
+    res.json(student);
+  } catch (err) {
+    return res.status(400).json({
+      error: getErrorMessage(err),
+    });
+  }
+};
+
 const studentByID = async (req, res, next, id) => {
   try {
-    let student = await Student.findById(id);
+    let student = await Student.findById(id).populate("volunteer");
     if (!student)
       return res.status("400").json({
         error: "Student not found",
@@ -38,6 +49,7 @@ const studentByID = async (req, res, next, id) => {
     req.profile = student;
     next();
   } catch (err) {
+    console.log(err);
     return res.status("400").json({
       error: "Could not retrieve student",
     });
@@ -89,4 +101,4 @@ const update = async (req, res) => {
   }
 };
 
-module.exports = { create, list, studentByID, remove, update };
+module.exports = { create, list, studentByID, remove, update, get };

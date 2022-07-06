@@ -7,7 +7,8 @@ router.route("/api/students").post(studentCtrl.create).get(studentCtrl.list);
 router
   .route("/api/students/:studentID")
   .delete(studentCtrl.remove)
-  .put(studentCtrl.update);
+  .put(studentCtrl.update)
+  .get(studentCtrl.get);
 
 router.param("studentID", studentCtrl.studentByID);
 
