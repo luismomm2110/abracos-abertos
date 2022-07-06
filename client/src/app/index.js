@@ -17,6 +17,7 @@ import ListStudents from "../pages/ListStudents";
 import EditStudent from "../pages/ListStudents/EditStudent.js";
 import Admin from "../pages/Admin/Login.js";
 import AdmControl from "../pages/Admin/Control";
+import ListCandidates from "../pages/ListCandidates";
 
 function App() {
   const [isFixed, setIsFixed] = useState(true);
@@ -40,6 +41,7 @@ function App() {
         <Route path="/student" element={<Student />} />
         <Route path="/control/listavoluntarios" element={<ListVolunteers />} />
         <Route path="/control/listaestudantes" element={<ListStudents />} />
+        <Route path="/control/candidatos" element={<ListCandidates />} />
         <Route
           path="control/listavoluntarios/editarvoluntario/:id"
           element={<EditVolunteer />}

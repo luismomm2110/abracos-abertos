@@ -24,7 +24,7 @@ export default function Volunteer() {
     }
 
     axios
-      .post("http://localhost:9000/api/volunteers", formFields)
+      .post("http://localhost:9000/api/candidate", formFields)
       .then((response) => {
         console.log(response.data);
       })

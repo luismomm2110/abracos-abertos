@@ -75,7 +75,7 @@ const ListStudents = () => {
     return <div> Sem estudantes</div>;
   }
 
-  return navigate(`/control`);
+  return navigate(`/admin`);
 };
 
 export default ListStudents;
