@@ -2,20 +2,38 @@ import { useParams } from "react-router";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import "./styles.css";
+import VolunteerCard from "./DropDownButton/DropdownCard";
 
 export default function EditStudent() {
   let { id } = useParams();
-  const url = `http://localhost:9000/api/students/${id}`;
+  const urlStudent = `http://localhost:9000/api/students/${id}`;
+  const urlListVolunteer = `http://localhost:9000/api/volunteers`;
   const [currentStudent, setStudent] = useState("");
+  const [volunteers, setVolunteers] = useState([]);
 
   useEffect(() => {
-    fetch(url)
+    fetch(urlListVolunteer)
+      .then((response) => response.json())
+      .then((data) => setVolunteers(data))
+      .catch(console.error);
+  }, [urlListVolunteer]);
+
+  useEffect(() => {
+    fetch(urlStudent)
       .then((response) => response.json())
       .then((data) => setStudent(data))
       .catch(console.error);
-  }, [url]);
+  }, [urlStudent]);
 
   const [formFields, setFormFields] = useState(currentStudent);
+
+  const onNewVolunteer = (idVolunteer, nameVolunteer) => {
+    const newFormFields = [
+      ...formFields,
+      { _id: idVolunteer, name: nameVolunteer },
+    ];
+    setFormFields(newFormFields);
+  };
 
   if (currentStudent.length !== 0) {
     const handleSubmit = (event) => {
@@ -48,8 +66,6 @@ export default function EditStudent() {
 
     return (
       <div className="studentContainer">
-        <h1>Precisa de acompanhamento?</h1>
-        <h2>Insira os dados do aluno aqui!</h2>
         <form className="studentForm">
           <div className="formRow">
             <div class="form-group ">
@@ -129,22 +145,17 @@ export default function EditStudent() {
               />
             </div>
           </div>
+          <div className="col-md-12">
+            <VolunteerCard
+              volunteer={currentStudent.volunteer.name}
+              data={volunteers}
+              onNewVolunteer={onNewVolunteer}
+            />
+          </div>
           <div className="formRow">
-            <div class="form-group">
-              <label for="inputPhone">Telefone dos Resposáveis</label>
-              <input
-                type="phone"
-                class="form-control"
-                id="inputAdress"
-                name="parentTelephone"
-                placeholder={currentStudent.parentTelephone}
-                value={formFields.parentTelephone}
-                onChange={handleInput}
-              />
-            </div>
             <button
               type="submit"
-              class="btn btn-primary col-md-6"
+              class="btn btn-primary col-md-12"
               onClick={handleSubmit}
             >
               Enviar

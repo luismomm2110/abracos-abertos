@@ -19,10 +19,19 @@ const create = async (req, res) => {
 
 const list = async (req, res) => {
   try {
-    let students = await Student.find().select(
-      "name parentName age parentTelephone address nationality"
-    );
+    let students = await Student.find().populate("volunteer");
     res.json(students);
+  } catch (err) {
+    return res.status(400).json({
+      error: getErrorMessage(err),
+    });
+  }
+};
+
+const get = async (req, res) => {
+  try {
+    let student = req.profile;
+    res.json(student);
   } catch (err) {
     return res.status(400).json({
       error: getErrorMessage(err),
@@ -32,7 +41,7 @@ const list = async (req, res) => {
 
 const studentByID = async (req, res, next, id) => {
   try {
-    let student = await Student.findById(id);
+    let student = await Student.findById(id).populate("volunteer");
     if (!student)
       return res.status("400").json({
         error: "Student not found",
@@ -40,6 +49,7 @@ const studentByID = async (req, res, next, id) => {
     req.profile = student;
     next();
   } catch (err) {
+    console.log(err);
     return res.status("400").json({
       error: "Could not retrieve student",
     });
@@ -91,4 +101,4 @@ const update = async (req, res) => {
   }
 };
 
-module.exports = { create, list, studentByID, remove, update };
+module.exports = { create, list, studentByID, remove, update, get };

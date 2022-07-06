@@ -1,6 +1,7 @@
-import "./styles.css";
 import { useState } from "react";
+import { VolunteerContainer } from "./styles";
 import axios from "axios";
+
 
 export default function Volunteer() {
   const initialValues = {
@@ -24,7 +25,7 @@ export default function Volunteer() {
     }
 
     axios
-      .post("http://localhost:9000/api/volunteers", formFields)
+      .post("http://localhost:9000/api/candidate", formFields)
       .then((response) => {
         console.log(response.data);
       })
@@ -44,7 +45,7 @@ export default function Volunteer() {
   };
 
   return (
-    <div className="App">
+    <VolunteerContainer>
       <h4>Seja um voluntário!</h4>
       <form className="volunteerForm">
         <div className="formRow">
@@ -141,13 +142,13 @@ export default function Volunteer() {
           <button
             type="submit"
             class="btn btn-primary "
-            style={{ width: "45%" }}
+            style={{ width: "42%" }}
             onClick={handleSubmit}
           >
             Enviar
           </button>
         </div>
       </form>
-    </div>
+    </VolunteerContainer>
   );
 }
