@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router";
 import { signin } from "../../auth/api-auth.js";
 import auth from "../../auth/api-helper.js";
+import { LoginContainer } from "./styles";
 
 export default function Login() {
   const initialValues = {
@@ -42,7 +43,7 @@ export default function Login() {
   };
 
   return (
-    <div className="App">
+    <LoginContainer>
       <h4>Página do Administrador</h4>
       <form className="volunteerForm">
         <div className="formRow">
@@ -81,6 +82,6 @@ export default function Login() {
         </button>
         <p>{loginStatus} </p>
       </form>
-    </div>
+    </LoginContainer>
   );
 }
