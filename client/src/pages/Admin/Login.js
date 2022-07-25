@@ -45,13 +45,12 @@ export default function Login() {
   return (
     <LoginContainer>
       <h4>Página do Administrador</h4>
-      <form className="volunteerForm">
-        <div className="formRow">
-          <div class="form-group">
+      <form>
+        <div>
+          <div>
             <label for="inputLogin">Login</label>
             <input
               type="login"
-              class="form-control"
               id="inputName"
               name="login"
               value={admState.login}
@@ -59,11 +58,10 @@ export default function Login() {
               onChange={handleInput}
             />
           </div>
-          <div class="form-group ">
+          <div>
             <label for="inputPassword">Senha</label>
             <input
               type="password"
-              class="form-control"
               id="inputPassword"
               name="password"
               value={admState.password}
@@ -72,12 +70,7 @@ export default function Login() {
             />
           </div>
         </div>
-        <button
-          type="submit"
-          class="btn btn-primary "
-          style={{ width: "45%" }}
-          onClick={handleSubmit}
-        >
+        <button type="submit" class="btn btn-primary " onClick={handleSubmit}>
           Enviar
         </button>
         <p>{loginStatus} </p>

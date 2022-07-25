@@ -15,7 +15,12 @@ const VolunteerCard = ({
   };
 
   return (
-    <DropdownButton title={value} onSelect={handleSelect}>
+    <DropdownButton
+      alignRight
+      title={value}
+      id="dropdown-menu-align-right"
+      onSelect={handleSelect}
+    >
       <Dropdown.Item eventKey={"Nenhum Voluntário"}>
         Nenhum voluntário
       </Dropdown.Item>

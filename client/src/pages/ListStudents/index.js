@@ -23,6 +23,12 @@ const ListStudents = () => {
         });
     };
 
+    let volunteer = "Sem tutor";
+
+    if (props.volunteer != null) {
+      volunteer = props.volunteer.name;
+    }
+
     return (
       <>
         <h4>Nome do Estudante: {props.name}</h4>
@@ -31,7 +37,7 @@ const ListStudents = () => {
         <p>Telefone do parente: {props.parentTelephone}</p>
         <p>Nacionalidade: {props.nationality}</p>
         <p>Endereço: {props.address}</p>
-        <p>Tutor: {props.volunteer.name} </p>
+        <p>Tutor: {volunteer} </p>
         <div className="buttonRow">
           <button
             type="submit"
