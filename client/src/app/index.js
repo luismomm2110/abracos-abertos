@@ -1,9 +1,7 @@
-import { useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import { AppWrapper } from "./styles";
 
 import Header from "../components/Header";
-import Footer from "../components/Footer";
 
 import Home from "../pages/Home";
 import About from "../pages/About";
@@ -19,20 +17,15 @@ import AdmControl from "../pages/Admin/Control";
 import ListCandidates from "../pages/ListCandidates";
 
 function App() {
-  const [isFixed, setIsFixed] = useState(true);
-
-  const handleFooterBottom = (isFixed) => {
-    setIsFixed(isFixed);
-  };
 
   return (
     <AppWrapper>
       <Header />
       <Routes>
-        <Route path="/" element={<Home isFooterFixed={handleFooterBottom} />} />
+        <Route path="/" element={<Home  />} />
         <Route
           path="about"
-          element={<About isFooterFixed={handleFooterBottom} />}
+          element={<About  />}
         />
         <Route path="/history" element={<History />} />
         <Route path="/volunteer" element={<Volunteer />} />
@@ -52,7 +45,6 @@ function App() {
         <Route path="/control" element={<AdmControl />} />
         <Route path="*" element={<div>404</div>} />
       </Routes>
-      <Footer isFixed={isFixed} />
     </AppWrapper>
   );
 }
