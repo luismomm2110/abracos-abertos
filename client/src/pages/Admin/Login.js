@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router";
 import { signin } from "../../auth/api-auth.js";
 import auth from "../../auth/api-helper.js";
-import { LoginContainer } from "./styles";
+import { LoginContainer, Input, ButtonContainer } from "./styles";
 
 export default function Login() {
   const initialValues = {
@@ -47,32 +47,30 @@ export default function Login() {
       <h4>Página do Administrador</h4>
       <form>
         <div>
-          <div>
-            <label for="inputLogin">Login</label>
-            <input
-              type="login"
-              id="inputName"
-              name="login"
-              value={admState.login}
-              placeholder="login"
-              onChange={handleInput}
-            />
-          </div>
-          <div>
-            <label for="inputPassword">Senha</label>
-            <input
-              type="password"
-              id="inputPassword"
-              name="password"
-              value={admState.password}
-              placeholder="Password"
-              onChange={handleInput}
-            />
-          </div>
+          <label for="inputLogin">Login</label>
+          <Input
+            type="login"
+            id="inputName"
+            name="login"
+            value={admState.login}
+            placeholder="Login"
+            onChange={handleInput}
+          />
+          <label for="inputPassword">Senha</label>
+          <Input
+            type="password"
+            id="inputPassword"
+            name="password"
+            value={admState.password}
+            placeholder="Password"
+            onChange={handleInput}
+          />
         </div>
-        <button type="submit" class="btn btn-primary " onClick={handleSubmit}>
-          Enviar
-        </button>
+        <ButtonContainer>
+          <button type="submit" class="btn btn-primary " onClick={handleSubmit}>
+            Enviar
+          </button>
+        </ButtonContainer>
         <p>{loginStatus} </p>
       </form>
     </LoginContainer>
