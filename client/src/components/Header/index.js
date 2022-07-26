@@ -1,36 +1,33 @@
-import { Navbar, Nav, div } from "react-bootstrap";
+import { Link } from "react-router-dom";
 import { NavContainer, LinkText } from './styles';
 import logo from "../../assets/logo.png";
 
 function Header() {
+
+  const links = [ { link : "/about", description: "Quem somos"}, {link : "/volunteer", description : "Seja um voluntário"}, 
+  { link : "/student", description : "Busque apoio!"}, { link : "/contact", description : "Contato" } ]
+
   return (
     <NavContainer>
-      <Navbar expand="sm">
-        <div>
-          <Nav style={{ display: "flex", alignItems: "center" }}>
-            <Navbar.Brand href="/">
+      <LinkText>
+      <div expand="sm">
+            <Link to="/">
               <img
                 src={logo}
                 height="60px"
                 width="130px"
                 alt="logo"
               />
-            </Navbar.Brand>
-            <Nav.Link href="/about">
-              <LinkText>Quem somos</LinkText>
-            </Nav.Link>
-            <Nav.Link href="/volunteer">
-              <LinkText>Seja um voluntário</LinkText>
-            </Nav.Link>
-            <Nav.Link href="/student">
-              <LinkText>Busque apoio!</LinkText>
-            </Nav.Link>
-            <Nav.Link href="/contact">
-              <LinkText>Contato</LinkText>
-            </Nav.Link>
-          </Nav>
-        </div>
-      </Navbar>
+            </Link>
+            </div>
+            </LinkText>
+            {links.map((link, i) => (
+              <Link to={link.link}>
+                <LinkText> 
+                  {link.description}
+                </LinkText>
+              </Link>
+            ))}
     </NavContainer>
   );
 };
