@@ -8,7 +8,6 @@ import Footer from "../components/Footer";
 import Home from "../pages/Home";
 import About from "../pages/About";
 import History from "../pages/History";
-import Contact from "../pages/Contact";
 import Volunteer from "../pages/Volunteer";
 import Student from "../pages/Student";
 import ListVolunteers from "../pages/ListVolunteers";
@@ -36,7 +35,6 @@ function App() {
           element={<About isFooterFixed={handleFooterBottom} />}
         />
         <Route path="/history" element={<History />} />
-        <Route path="/contact" element={<Contact />} />
         <Route path="/volunteer" element={<Volunteer />} />
         <Route path="/student" element={<Student />} />
         <Route path="/control/listavoluntarios" element={<ListVolunteers />} />

@@ -1,4 +1,4 @@
-import { Navbar, Nav, Container } from "react-bootstrap";
+import { Navbar, Nav, div } from "react-bootstrap";
 import { NavContainer, LinkText } from './styles';
 import logo from "../../assets/logo.png";
 
@@ -6,7 +6,7 @@ function Header() {
   return (
     <NavContainer>
       <Navbar expand="sm">
-        <Container>
+        <div>
           <Nav style={{ display: "flex", alignItems: "center" }}>
             <Navbar.Brand href="/">
               <img
@@ -29,7 +29,7 @@ function Header() {
               <LinkText>Contato</LinkText>
             </Nav.Link>
           </Nav>
-        </Container>
+        </div>
       </Navbar>
     </NavContainer>
   );

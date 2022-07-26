@@ -3,28 +3,16 @@ import auth from "../../auth/api-helper";
 
 export default function AdmControl() {
   const navigate = useNavigate();
+  /* APENAS PARA TESTE
   if (!auth.isAuthenticated()) {
     return navigate("/admin");
   }
+  */
 
   return (
-    <div
-      style={{
-        display: "flex",
-        alignItems: "center",
-        position: "center",
-        flexDirection: "column",
-      }}
-    >
+    <div style={{background: "red"}}>
       <h2> Página do Administrador </h2>
-      <div
-        style={{
-          display: "flex",
-          alignItems: "center",
-          position: "center",
-          marginTop: "100px",
-        }}
-      >
+      <div>
         <Link to="listaestudantes">Lista de Estudantes</Link>
       </div>
       <div>
