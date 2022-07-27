@@ -1,6 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
-import { VolunteerContainer } from "./styles";
+import { VolunteerContainer, Input, Button } from "./styles";
 
 export default function Volunteer() {
   const initialValues = {
@@ -49,10 +49,10 @@ export default function Volunteer() {
       <form >
         <div>
           <div>
-            <label for="inputName">Nome</label>
-            <input
+            <label for="InputName">Nome</label>
+            <Input
               type="name"
-              id="inputName"
+              id="InputName"
               name="name"
               placeholder="Nome"
               value={formFields.name}
@@ -60,10 +60,10 @@ export default function Volunteer() {
             />
           </div>
           <div>
-            <label for="inputEmail">Email</label>
-            <input
+            <label for="InputEmail">Email</label>
+            <Input
               type="email"
-              id="inputEmail"
+              id="InputEmail"
               name="email"
               value={formFields.email}
               placeholder="Email"
@@ -73,10 +73,10 @@ export default function Volunteer() {
         </div>
         <div >
           <div >
-            <label for="inputAge">Idade</label>
-            <input
+            <label for="InputAge">Idade</label>
+            <Input
               type="age"
-              id="inputAge"
+              id="InputAge"
               name="age"
               placeholder="Idade"
               value={formFields.age}
@@ -84,10 +84,10 @@ export default function Volunteer() {
             />
           </div>
           <div >
-            <label for="inputCPF">CPF</label>
-            <input
+            <label for="InputCPF">CPF</label>
+            <Input
               type="cpf"
-              id="inputCPF"
+              id="InputCPF"
               name="cpf"
               placeholder="CPF"
               value={formFields.cpf}
@@ -97,10 +97,10 @@ export default function Volunteer() {
         </div>
         <div >
           <div >
-            <label for="inputEducationalLevel">Escolaridade</label>
-            <input
+            <label for="InputEducationalLevel">Escolaridade</label>
+            <Input
               type="educationalLevel"
-              id="inputEducationalLevel"
+              id="InputEducationalLevel"
               name="educationalLevel"
               value={formFields.educationalLevel}
               placeholder="Escolaridade"
@@ -108,10 +108,10 @@ export default function Volunteer() {
             />
           </div>
           <div >
-            <label for="inputAddress">Endereço</label>
-            <input
+            <label for="InputAddress">Endereço</label>
+            <Input
               type="address"
-              id="inputAdress"
+              id="InputAdress"
               name="address"
               placeholder="Endereço"
               value={formFields.address}
@@ -121,24 +121,20 @@ export default function Volunteer() {
         </div>
         <div >
           <div >
-            <label for="inputPhone">Telefone</label>
-            <input
+            <label for="InputPhone">Telefone</label>
+            <Input
               type="phone"
               class="form-control"
-              id="inputAdress"
+              id="InputAdress"
               name="phone"
               placeholder="Telefone"
               value={formFields.phone}
               onChange={handleInput}
             />
           </div>
-          <button
-            type="submit"
-            class="btn btn-primary "
-            onClick={handleSubmit}
-          >
+          <Button onClick={handleSubmit}> 
             Enviar
-          </button>
+          </Button>
         </div>
       </form>
       </VolunteerContainer>

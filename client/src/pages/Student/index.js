@@ -41,12 +41,12 @@ export default function Student() {
   };
 
   return (
-    <div className="studentContainer">
+    <div>
       <h1>Precisa de acompanhamento?</h1>
       <h2>Insira os dados do aluno aqui!</h2>
-      <form className="studentForm">
-        <div className="formRow">
-          <div class="form-group ">
+      <form>
+        <div>
+          <div >
             <label for="inputName">Nome</label>
             <input
               type="name"
@@ -71,8 +71,8 @@ export default function Student() {
             />
           </div>
         </div>
-        <div className="formRow">
-          <div class="form-group">
+        <div>
+          <div>
             <label for="inputAge">Idade</label>
             <input
               type="age"
@@ -84,7 +84,7 @@ export default function Student() {
               onChange={handleInput}
             />
           </div>
-          <div class="form-group col-md-6 ">
+          <div>
             <label for="inputNationality">País de Origem</label>
             <input
               type="nationality"
@@ -97,8 +97,8 @@ export default function Student() {
             />
           </div>
         </div>
-        <div className="formRow">
-          <div class="form-group">
+        <div >
+          <div>
             <label for="inputAddress">Endereço</label>
             <input
               type="address"
@@ -110,7 +110,7 @@ export default function Student() {
               onChange={handleInput}
             />
           </div>
-          <div class="form-group col-md-6">
+          <div>
             <label for="inputGrade">Ano do aluno na escola</label>
             <input
               type="grade"
@@ -123,8 +123,8 @@ export default function Student() {
             />
           </div>
         </div>
-        <div className="formRow">
-          <div class="form-group">
+        <div >
+          <div>
             <label for="inputPhone">Telefone dos Resposáveis</label>
             <input
               type="phone"
