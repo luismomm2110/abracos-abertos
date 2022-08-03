@@ -1,6 +1,5 @@
-import "./styles.css";
-import { useState } from "react";
-import axios from "axios";
+import { StudentContainer, Input, Button } from "./styles";
+import { useForm } from "../../hooks/hooks";
 
 export default function Student() {
   const initialValues = {
@@ -13,138 +12,114 @@ export default function Student() {
     grade: "",
   };
 
-  const [formFields, setFormFields] = useState(initialValues);
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-
-    if (Object.values(formFields).some((field) => field.length === 0)) {
-      alert("Preencha todos campos");
-      return;
-    }
-
-    axios
-      .post("http://localhost:9000/api/students", formFields)
-      .then((response) => {
-        console.log(response.data);
-      })
-      .catch((error) => {
-        console.log(error.response.data);
-      });
-
-    setFormFields({ ...initialValues });
-  };
-
-  const handleInput = (event) => {
-    event.preventDefault();
-    setFormFields({ ...formFields, [event.target.name]: event.target.value });
-  };
+  const [formFields, handleInput, handleSubmit] = useForm(
+    initialValues,
+    "students"
+  );
 
   return (
     <div>
       <h1>Precisa de acompanhamento?</h1>
       <h2>Insira os dados do aluno aqui!</h2>
-      <form>
-        <div>
-          <div >
-            <label for="inputName">Nome</label>
-            <input
-              type="name"
-              class="form-control"
-              id="inputName"
-              name="name"
-              placeholder="Nome"
-              value={formFields.name}
-              onChange={handleInput}
-            />
-          </div>
-          <div class="form-group col-md-6 col-xs-12">
-            <label for="inputParentName">Nome do Responsável</label>
-            <input
-              type="parentName"
-              class="form-control"
-              id="inputParentName"
-              name="parentName"
-              placeholder="Nome do Responsável"
-              value={formFields.parentName}
-              onChange={handleInput}
-            />
-          </div>
-        </div>
-        <div>
+      <StudentContainer>
+        <form>
           <div>
-            <label for="inputAge">Idade</label>
-            <input
-              type="age"
-              class="form-control"
-              id="inputAge"
-              name="age"
-              placeholder="Idade"
-              value={formFields.age}
-              onChange={handleInput}
-            />
+            <div>
+              <label for="InputName">Nome</label>
+              <Input
+                type="name"
+                class="form-control"
+                id="InputName"
+                name="name"
+                placeholder="Nome"
+                value={formFields.name}
+                onChange={handleInput}
+              />
+            </div>
+            <div>
+              <label for="InputParentName">Nome do Responsável</label>
+              <Input
+                type="parentName"
+                class="form-control"
+                id="InputParentName"
+                name="parentName"
+                placeholder="Nome do Responsável"
+                value={formFields.parentName}
+                onChange={handleInput}
+              />
+            </div>
           </div>
           <div>
-            <label for="inputNationality">País de Origem</label>
-            <input
-              type="nationality"
-              class="form-control"
-              id="inputNationality"
-              name="nationality"
-              placeholder="País de Origem"
-              value={formFields.nationality}
-              onChange={handleInput}
-            />
+            <div>
+              <label for="InputAge">Idade</label>
+              <Input
+                type="age"
+                class="form-control"
+                id="InputAge"
+                name="age"
+                placeholder="Idade"
+                value={formFields.age}
+                onChange={handleInput}
+              />
+            </div>
+            <div>
+              <label for="InputNationality">País de Origem</label>
+              <Input
+                type="nationality"
+                class="form-control"
+                id="InputNationality"
+                name="nationality"
+                placeholder="País de Origem"
+                value={formFields.nationality}
+                onChange={handleInput}
+              />
+            </div>
           </div>
-        </div>
-        <div >
           <div>
-            <label for="inputAddress">Endereço</label>
-            <input
-              type="address"
-              class="form-control"
-              id="inputAdress"
-              name="address"
-              placeholder="Endereço"
-              value={formFields.address}
-              onChange={handleInput}
-            />
+            <div>
+              <label for="InputAddress">Endereço</label>
+              <Input
+                type="address"
+                class="form-control"
+                id="InputAdress"
+                name="address"
+                placeholder="Endereço"
+                value={formFields.address}
+                onChange={handleInput}
+              />
+            </div>
+            <div>
+              <label for="InputGrade">Ano do aluno na escola</label>
+              <Input
+                type="grade"
+                class="form-control"
+                id="InputGrade"
+                name="grade"
+                placeholder="Ano Escolar"
+                value={formFields.grade}
+                onChange={handleInput}
+              />
+            </div>
           </div>
           <div>
-            <label for="inputGrade">Ano do aluno na escola</label>
-            <input
-              type="grade"
-              class="form-control"
-              id="inputGrade"
-              name="grade"
-              placeholder="Ano Escolar"
-              value={formFields.grade}
-              onChange={handleInput}
-            />
+            <div>
+              <label for="InputPhone">Telefone dos Resposáveis</label>
+              <Input
+                type="phone"
+                class="form-control"
+                id="InputAdress"
+                name="parentTelephone"
+                placeholder="Telefone dos Responsáveis"
+                value={formFields.parentTelephone}
+                onChange={handleInput}
+              />
+            </div>
+            <Button type="submit" onClick={handleSubmit}>
+              Enviar
+            </Button>
           </div>
-        </div>
-        <div >
-          <div>
-            <label for="inputPhone">Telefone dos Resposáveis</label>
-            <input
-              type="phone"
-              class="form-control"
-              id="inputAdress"
-              name="parentTelephone"
-              placeholder="Telefone dos Responsáveis"
-              value={formFields.parentTelephone}
-              onChange={handleInput}
-            />
-          </div>
-          <button
-            type="submit"
-            class="btn btn-primary col-md-6"
-            onClick={handleSubmit}
-          >
-            Enviar
-          </button>
-        </div>
-      </form>
+        </form>
+      </StudentContainer>
     </div>
   );
 }

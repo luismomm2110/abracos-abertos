@@ -1,6 +1,5 @@
-import { useState } from "react";
-import axios from "axios";
 import { VolunteerContainer, Input, Button } from "./styles";
+import { useForm } from "../../hooks/hooks";
 
 export default function Volunteer() {
   const initialValues = {
@@ -13,41 +12,17 @@ export default function Volunteer() {
     phone: "",
   };
 
-  const [formFields, setFormFields] = useState({ initialValues });
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-
-    if (Object.values(formFields).some((field) => field.length === 0)) {
-      alert("Preencha todos campos");
-      return;
-    }
-
-    axios
-      .post("http://localhost:9000/api/candidate", formFields)
-      .then((response) => {
-        console.log(response.data);
-      })
-      .catch((error) => {
-        console.log(error.response.data);
-      });
-
-    setFormFields(() => ({ ...initialValues }));
-  };
-
-  const handleInput = (event) => {
-    event.preventDefault();
-    setFormFields(() => ({
-      ...formFields,
-      [event.target.name]: event.target.value,
-    }));
-  };
+  const [formFields, handleInput, handleSubmit] = useForm(
+    initialValues,
+    "candidate"
+  );
 
   return (
-    <VolunteerContainer> 
+    <VolunteerContainer>
       <h4>Seja um voluntário!</h4>
-      <form >
+      <form>
         <div>
+          <div></div>
           <div>
             <label for="InputName">Nome</label>
             <Input
@@ -71,8 +46,8 @@ export default function Volunteer() {
             />
           </div>
         </div>
-        <div >
-          <div >
+        <div>
+          <div>
             <label for="InputAge">Idade</label>
             <Input
               type="age"
@@ -83,7 +58,7 @@ export default function Volunteer() {
               onChange={handleInput}
             />
           </div>
-          <div >
+          <div>
             <label for="InputCPF">CPF</label>
             <Input
               type="cpf"
@@ -95,8 +70,8 @@ export default function Volunteer() {
             />
           </div>
         </div>
-        <div >
-          <div >
+        <div>
+          <div>
             <label for="InputEducationalLevel">Escolaridade</label>
             <Input
               type="educationalLevel"
@@ -107,7 +82,7 @@ export default function Volunteer() {
               onChange={handleInput}
             />
           </div>
-          <div >
+          <div>
             <label for="InputAddress">Endereço</label>
             <Input
               type="address"
@@ -119,8 +94,8 @@ export default function Volunteer() {
             />
           </div>
         </div>
-        <div >
-          <div >
+        <div>
+          <div>
             <label for="InputPhone">Telefone</label>
             <Input
               type="phone"
@@ -132,11 +107,9 @@ export default function Volunteer() {
               onChange={handleInput}
             />
           </div>
-          <Button onClick={handleSubmit}> 
-            Enviar
-          </Button>
+          <Button onClick={handleSubmit}>Enviar</Button>
         </div>
       </form>
-      </VolunteerContainer>
+    </VolunteerContainer>
   );
 }
