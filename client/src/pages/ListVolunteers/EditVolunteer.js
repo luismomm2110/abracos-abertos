@@ -50,11 +50,11 @@ export default function EditVolunteer() {
       <div className="App">
         <form className="volunteerForm">
           <div className="formRow">
-            <div class="form-group">
-              <label for="inputName">Nome</label>
+            <div className="form-group">
+              <label htmlFor="inputName">Nome</label>
               <input
                 type="name"
-                class="form-control"
+                className="form-control"
                 id="inputName"
                 name="name"
                 placeholder={currentVolunteer.name}
@@ -62,11 +62,11 @@ export default function EditVolunteer() {
                 onChange={handleInput}
               />
             </div>
-            <div class="form-group col-md-6">
-              <label for="inputEmail">Email</label>
+            <div className="form-group col-md-6">
+              <label htmlFor="inputEmail">Email</label>
               <input
                 type="email"
-                class="form-control"
+                className="form-control"
                 id="inputEmail"
                 name="email"
                 placeholder={currentVolunteer.email}
@@ -76,11 +76,11 @@ export default function EditVolunteer() {
             </div>
           </div>
           <div className="formRow">
-            <div class="form-group">
-              <label for="inputAge">Idade</label>
+            <div className="form-group">
+              <label htmlFor="inputAge">Idade</label>
               <input
                 type="age"
-                class="form-control"
+                className="form-control"
                 id="inputAge"
                 name="age"
                 placeholder={currentVolunteer.age}

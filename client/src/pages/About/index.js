@@ -13,7 +13,6 @@ export default function About({ isFooterFixed }) {
       <CollaboratorsContainer>
         <h1>Colaboradores/as</h1>
       </CollaboratorsContainer>
-
       {peopleData.persons.map(person => (
         <Person data={person} key={person.name} />
       ))}
