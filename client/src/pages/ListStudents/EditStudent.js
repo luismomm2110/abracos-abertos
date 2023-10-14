@@ -68,11 +68,11 @@ export default function EditStudent() {
       <div className="studentContainer">
         <form className="studentForm">
           <div className="formRow">
-            <div class="form-group ">
-              <label for="inputName">Nome</label>
+            <div className="form-group ">
+              <label htmlFor="inputName">Nome</label>
               <input
                 type="name"
-                class="form-control"
+                className="form-control"
                 id="inputName"
                 name="name"
                 placeholder={currentStudent.name}
@@ -80,11 +80,11 @@ export default function EditStudent() {
                 onChange={handleInput}
               />
             </div>
-            <div class="form-group col-md-6 col-xs-12">
-              <label for="inputParentName">Nome do Responsável</label>
+            <div className="form-group col-md-6 col-xs-12">
+              <label htmlFor="inputParentName">Nome do Responsável</label>
               <input
                 type="parentName"
-                class="form-control"
+                className="form-control"
                 id="inputParentName"
                 name="parentName"
                 placeholder={currentStudent.parentName}
@@ -94,11 +94,11 @@ export default function EditStudent() {
             </div>
           </div>
           <div className="formRow">
-            <div class="form-group">
-              <label for="inputAge">Idade</label>
+            <div className="form-group">
+              <label htmlFor="inputAge">Idade</label>
               <input
                 type="age"
-                class="form-control"
+                className="form-control"
                 id="inputAge"
                 name="age"
                 placeholder={currentStudent.age}
@@ -106,11 +106,11 @@ export default function EditStudent() {
                 onChange={handleInput}
               />
             </div>
-            <div class="form-group col-md-6 ">
-              <label for="inputNationality">País de Origem</label>
+            <div className="form-group col-md-6 ">
+              <label htmlFor="inputNationality">País de Origem</label>
               <input
                 type="nationality"
-                class="form-control"
+                className="form-control"
                 id="inputNationality"
                 name="nationality"
                 placeholder={currentStudent.nationality}
@@ -120,11 +120,11 @@ export default function EditStudent() {
             </div>
           </div>
           <div className="formRow">
-            <div class="form-group">
-              <label for="inputAddress">Endereço</label>
+            <div className="form-group">
+              <label htmlFor="inputAddress">Endereço</label>
               <input
                 type="address"
-                class="form-control"
+                className="form-control"
                 id="inputAdress"
                 name="address"
                 placeholder={currentStudent.address}
@@ -132,11 +132,11 @@ export default function EditStudent() {
                 onChange={handleInput}
               />
             </div>
-            <div class="form-group col-md-6">
-              <label for="inputGrade">Ano do aluno na escola</label>
+            <div className="form-group col-md-6">
+              <label htmlFor="inputGrade">Ano do aluno na escola</label>
               <input
                 type="grade"
-                class="form-control"
+                className="form-control"
                 id="inputGrade"
                 name="grade"
                 placeholder={currentStudent.grade}
@@ -155,7 +155,7 @@ export default function EditStudent() {
           <div className="formRow">
             <button
               type="submit"
-              class="btn btn-primary col-md-12"
+              className="btn btn-primary col-md-12"
               onClick={handleSubmit}
             >
               Enviar

@@ -4,7 +4,7 @@ import axios from "axios";
 import auth from "../../auth/api-helper";
 
 const ListCandidates = () => {
-  const [candidates, setCandidates] = useState();
+  const [candidates, setCandidates] = useState([]);
   const navigate = useNavigate();
 
   function SingleCandidate(props) {
@@ -66,15 +66,15 @@ const ListCandidates = () => {
         <div className="buttonRow">
           <button
             type="submit"
-            class="btn btn-primary"
+            className="btn btn-primary"
             onClick={() => navigate(`editarvoluntario/${props._id}`)}
           >
             Editar
           </button>
-          <button type="submit" onClick={handleAccept} class="btn btn-primary">
+          <button type="submit" onClick={handleAccept} className="btn btn-primary">
             Aceitar Como voluntário
           </button>
-          <button type="submit" onClick={handleDelete} class="btn btn-primary">
+          <button type="submit" onClick={handleDelete} className="btn btn-primary">
             Excluir
           </button>
         </div>

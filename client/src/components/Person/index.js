@@ -14,7 +14,6 @@ export default function Person({ data }) {
       <PersonContent>
         <h3>{job}</h3>
         <h2>{name}</h2>
-
         {description.map(paragraph => (
           <p>{paragraph}</p>
         ))}

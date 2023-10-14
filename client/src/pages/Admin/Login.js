@@ -47,11 +47,11 @@ export default function Login() {
       <h4>Página do Administrador</h4>
       <form className="volunteerForm">
         <div className="formRow">
-          <div class="form-group">
-            <label for="inputLogin">Login</label>
+          <div className="form-group">
+            <label htmlFor="inputLogin">Login</label>
             <input
               type="login"
-              class="form-control"
+              className="form-control"
               id="inputName"
               name="login"
               value={admState.login}
@@ -59,11 +59,11 @@ export default function Login() {
               onChange={handleInput}
             />
           </div>
-          <div class="form-group ">
-            <label for="inputPassword">Senha</label>
+          <div className="form-group ">
+            <label htmlFor="inputPassword">Senha</label>
             <input
               type="password"
-              class="form-control"
+              className="form-control"
               id="inputPassword"
               name="password"
               value={admState.password}
@@ -74,7 +74,7 @@ export default function Login() {
         </div>
         <button
           type="submit"
-          class="btn btn-primary "
+          className="btn btn-primary "
           style={{ width: "45%" }}
           onClick={handleSubmit}
         >
